@@ -55,6 +55,6 @@ LD_LIBRARY_PATH=$(echo $LD_LIBRARY_PATH | sed -E -e 's/^:*//' -e 's/:*$//' -e 's
 EOF
 ####
 
-source AIO_export.sh
+# source AIO_export.sh
 exit 0
 
