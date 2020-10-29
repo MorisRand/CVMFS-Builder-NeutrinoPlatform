@@ -10,7 +10,7 @@ COPY gcc_install.sh python_install.sh cmake_install.sh root_install.sh /tmp/
 
 RUN mkdir -p $CVMFS_INSTALL_PATH && cd $CVMFS_PATH \
 && yum update && yum install -y make gcc gcc-c++ perl bzip2 wget \
-&& /tmp/gcc_install.sh \
+&& /tmp/gcc_install.sh 
 
 ENV PATH="${CVMFS_INSTALL_PATH}/bin:${PATH}" \
     COMPILER_PATH="${CVMFS_INSTALL_PATH}/lib/gcc/x86_64-unknown-linux-gnu/${GCC_VERSION}" \
