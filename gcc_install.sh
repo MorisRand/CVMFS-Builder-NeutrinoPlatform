@@ -43,7 +43,7 @@ echo >> AIO_export.sh
 echo "export PATH=$CVMFS_INSTALL_PATH/bin:$PATH" >> AIO_export.sh
 echo "export COMPILER_PATH=$CVMFS_INSTALL_PATH/lib/gcc/x86_64-unknown-linux-gnu/${GCC_VERSION}" >> AIO_export.sh
 echo "export LIBRARY_PATH=$CVMFS_INSTALL_PATH/lib64" >> AIO_export.sh
-echo "export LD_LIBRARY_PATH=$CVMFS_INSTALL_PATH/lib64" >> AIO_export.sh
+echo "export LD_LIBRARY_PATH=$CVMFS_INSTALL_PATH/lib64:$CVMFS_INSTALL_PATH/lib" >> AIO_export.sh
 echo "export CC=$CVMFS_INSTALL_PATH/bin/gcc" >> AIO_export.sh
 echo "export CXX=$CVMFS_INSTALL_PATH/bin/g++" >> AIO_export.sh
 echo "export F77=$CVMFS_INSTALL_PATH/bin/gfortran" >> AIO_export.sh
@@ -55,6 +55,6 @@ LD_LIBRARY_PATH=$(echo $LD_LIBRARY_PATH | sed -E -e 's/^:*//' -e 's/:*$//' -e 's
 EOF
 ####
 
-# source AIO_export.sh
+source AIO_export.sh
 exit 0
 
