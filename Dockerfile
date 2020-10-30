@@ -7,9 +7,10 @@ ENV CVMFS_INSTALL_PATH=/cvmfs/dayabay.jinr.ru/centos7/deps
 ENV GCC_VERSION=9.3.0
 ENV PYTHON_VERSION=3.8.6
 COPY gcc_install.sh python_install.sh cmake_install.sh root_install.sh /tmp/
+COPY cvmfs_rsync /bin
 
 RUN mkdir -p $CVMFS_INSTALL_PATH && cd $CVMFS_PATH \
-&& yum update && yum install -y make gcc gcc-c++ perl bzip2 wget \
+&& yum update && yum install -y make gcc gcc-c++ perl bzip2 wget rsync \
 && /tmp/gcc_install.sh 
 
 ENV PATH="${CVMFS_INSTALL_PATH}/bin:${PATH}" \
@@ -24,5 +25,6 @@ ENV PATH="${CVMFS_INSTALL_PATH}/bin:${PATH}" \
 RUN  /tmp/python_install.sh \
 && /tmp/cmake_install.sh \
 && /tmp/root_install.sh
+
 
 WORKDIR "${CVMFS_PATH}"
