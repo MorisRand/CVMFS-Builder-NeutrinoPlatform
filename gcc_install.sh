@@ -16,16 +16,14 @@ then
     exit 1
 fi
 
-GCC_BUILD="${CVMFS_PATH}/gcc-${GCC_VERSION}_build"
+
 cd ${CVMFS_PATH}
 
 echo "Installing GCC-$GCC_VERSION"
 echo "Downloading it from source"
 curl  https://ftp.gnu.org/gnu/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.gz -O
 tar xzvf gcc-${GCC_VERSION}.tar.gz
-echo "Creating installation dir for it"
-mkdir -p $GCC_BUILD
-echo "Creating temporary dir"
+echo "Creating temporary dir for build"
 mkdir obj.gcc-${GCC_VERSION}
 cd gcc-${GCC_VERSION}
 echo "Downloading prerequisties"
