@@ -20,13 +20,13 @@ ENV PATH="${CVMFS_INSTALL_PATH}/bin:${PATH}" \
     CC="${CVMFS_INSTALL_PATH}/bin/gcc" \
     CXX="${CVMFS_INSTALL_PATH}/bin/g++" \
     F77="${CVMFS_INSTALL_PATH}/bin/gfortran" \
-    CMAKE_MODULE_PATH="${CVMFS_INSTALL_PATH}/cmake"
+    CMAKE_MODULE_PATH="${CVMFS_INSTALL_PATH}/cmake" \
+    PYTHONPATH="${CVMFS_INSTALL_PATH}/lib"
 
 RUN  /tmp/python_install.sh \
 && /tmp/cmake_install.sh \
 && /tmp/root_install.sh \
-yum install -y http://repo.okay.com.mx/centos/7/x86_64/release/okay-release-1-1.noarch.rpm \
-yum install -y boost166-devel
+yum install -y boost-devel
 
 
 WORKDIR "${CVMFS_PATH}"
