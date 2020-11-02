@@ -9,7 +9,7 @@ ENV PYTHON_VERSION=3.8.6
 COPY gcc_install.sh python_install.sh cmake_install.sh root_install.sh /tmp/
 COPY cvmfs_rsync /bin
 
-RUN mkdir -p $CVMFS_INSTALL_PATH && cd $CVMFS_PATH \
+RUN mkdir -p $CVMFS_INSTALL_PATH/pylib && cd $CVMFS_PATH \
 && yum update && yum install -y make gcc gcc-c++ perl bzip2 wget rsync boost-devel \
 && /tmp/gcc_install.sh 
 
@@ -21,7 +21,7 @@ ENV PATH="${CVMFS_INSTALL_PATH}/bin:${PATH}" \
     CXX="${CVMFS_INSTALL_PATH}/bin/g++" \
     F77="${CVMFS_INSTALL_PATH}/bin/gfortran" \
     CMAKE_MODULE_PATH="${CVMFS_INSTALL_PATH}/cmake" \
-    PYTHONPATH="${CVMFS_INSTALL_PATH}/lib:${CVMFS_INSTALL_PATH}:pylib"
+    PYTHONPATH="${CVMFS_INSTALL_PATH}/lib:${CVMFS_INSTALL_PATH}/pylib"
 
 RUN  /tmp/python_install.sh \
 && /tmp/cmake_install.sh \
