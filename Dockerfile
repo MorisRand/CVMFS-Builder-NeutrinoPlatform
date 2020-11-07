@@ -4,7 +4,7 @@ LABEL maintainer="treskov@jinr.ru"
 
 ENV CVMFS_PATH=/cvmfs/dayabay.jinr.ru/centos7
 ENV CVMFS_INSTALL_PATH=/cvmfs/dayabay.jinr.ru/centos7/deps
-ENV GCC_VERSION=9.3.0
+ENV GCC_VERSION=10.2.0
 ENV PYTHON_VERSION=3.8.6
 COPY gcc_install.sh python_install.sh cmake_install.sh root_install.sh /tmp/
 COPY cvmfs_rsync /bin
