@@ -33,4 +33,6 @@ cmake --build . --target install -- -j$(nproc --all)
 cd ../..
 rm -rf root_v${ROOT_VERSION}.source.tar.gz root-${ROOT_VERSION}
 
+python3 -m pip install xrootd
+
 exit 0
