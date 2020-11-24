@@ -10,7 +10,7 @@ COPY gcc_install.sh python_install.sh cmake_install.sh root_install.sh /tmp/
 COPY cvmfs_rsync /bin
 
 RUN mkdir -p $CVMFS_INSTALL_PATH/pylib && cd $CVMFS_PATH \
-&& yum update && yum install -y make gcc gcc-c++ perl bzip2 wget rsync boost-devel \
+&& yum update -y && yum install -y make gcc gcc-c++ perl bzip2 wget rsync boost-devel \
 && /tmp/gcc_install.sh 
 
 ENV PATH="${CVMFS_INSTALL_PATH}/bin:${PATH}" \
