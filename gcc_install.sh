@@ -22,12 +22,12 @@ cd ${CVMFS_PATH}
 echo "Installing GCC-$GCC_VERSION"
 echo "Downloading it from source"
 curl  https://ftp.gnu.org/gnu/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.gz -O
-tar xzvf gcc-${GCC_VERSION}.tar.gz
+tar xzf gcc-${GCC_VERSION}.tar.gz 2>&1 >/dev/null
 echo "Creating temporary dir for build"
 mkdir obj.gcc-${GCC_VERSION}
 cd gcc-${GCC_VERSION}
 echo "Downloading prerequisties"
-./contrib/download_prerequisites
+./contrib/download_prerequisites 2>&1 >/dev/null
 cd ../obj.gcc-${GCC_VERSION}
 ../gcc-${GCC_VERSION}/configure --enable-shared --enable-libquadmath \
         --enable-threads --enable-bootstrap --enable-checking --disable-multilib \

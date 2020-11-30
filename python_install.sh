@@ -22,11 +22,11 @@ echo "Downloading it from source"
 
 yum install -y openssl-devel libffi-devel
 curl https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz -O
-tar xzvf Python-${PYTHON_VERSION}.tgz
+tar xzvf Python-${PYTHON_VERSION}.tgz 2>&1 > /dev/null
 cd Python-${PYTHON_VERSION}
-./configure  --prefix=${CVMFS_INSTALL_PATH} --exec-prefix=${CVMFS_INSTALL_PATH} --with-lto --enable-shared --with-ssl
-make -j$(nproc)
-make install
+./configure  --prefix=${CVMFS_INSTALL_PATH} --exec-prefix=${CVMFS_INSTALL_PATH} --with-lto --enable-shared --with-ssl 2>&1 > /dev/null
+make -j$(nproc) 2>&1 > /dev/null
+make install 2>&1 > /dev/null
 
 cd ..
 rm -rf Python-${PYTHON_VERSION} Python-${PYTHON_VERSION}.tgz
