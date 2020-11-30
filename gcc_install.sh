@@ -29,9 +29,13 @@ cd gcc-${GCC_VERSION}
 echo "Downloading prerequisties"
 ./contrib/download_prerequisites
 cd ../obj.gcc-${GCC_VERSION}
-../gcc-${GCC_VERSION}/configure --enable-shared --enable-libquadmath --enable-threads --enable-bootstrap --enable-checking --disable-multilib --enable-languages=c,c++,fortran --enable-tls --enable-werror --enable-nls --enable-lto --enable-libquadmath-support CFLAGS="-m64" CXXFLAGS="-m64" --prefix=$CVMFS_INSTALL_PATH
-make -j $(nproc --all)
-make install
+../gcc-${GCC_VERSION}/configure --enable-shared --enable-libquadmath \
+        --enable-threads --enable-bootstrap --enable-checking --disable-multilib \
+        --enable-languages=c,c++,fortran --enable-tls --enable-werror --enable-nls \
+        --enable-lto --enable-libquadmath-support CFLAGS="-m64" CXXFLAGS="-m64" \
+        --prefix=$CVMFS_INSTALL_PATH 2>&1 > /dev/null
+make -j $(nproc --all) 2>&1 > /dev/null
+make install 2>&1 > /dev/null
 
 cd ..
 rm -rf gcc-${GCC_VERSION}.tar.gz gcc-${GCC_VERSION} obj.gcc-${GCC_VERSION}
