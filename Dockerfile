@@ -12,7 +12,7 @@ COPY cvmfs_rsync /bin
 RUN mkdir -p $CVMFS_INSTALL_PATH/pylib && cd $CVMFS_PATH \
 && yum update -y \
 && yum install -y make gcc gcc-c++ perl bzip2 wget rsync uuid-devel uuid \
-        uuid-c++ uuid-c++-devel boost-devel krb5-devel \
+        uuid-c++ uuid-c++-devel boost-devel krb5-devel libuuid libuuid-devel \
 && /tmp/gcc_install.sh 
 
 ENV PATH="${CVMFS_INSTALL_PATH}/bin:${PATH}" \
