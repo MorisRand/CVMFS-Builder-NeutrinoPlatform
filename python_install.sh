@@ -24,7 +24,7 @@ yum install -y openssl-devel libffi-devel
 curl https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz -O
 tar xzvf Python-${PYTHON_VERSION}.tgz > /dev/null 2>&1
 cd Python-${PYTHON_VERSION}
-./configure  --prefix=${CVMFS_INSTALL_PATH} --exec-prefix=${CVMFS_INSTALL_PATH} --with-lto --enable-shared --with-ssl> /dev/null 2>&1
+./configure  --prefix=${CVMFS_INSTALL_PATH} --exec-prefix=${CVMFS_INSTALL_PATH} --with-lto --enable-shared --with-ssl > /dev/null 2>&1
 make -j$(nproc) > /dev/null 2>&1
 make install > /dev/null 2>&1
 

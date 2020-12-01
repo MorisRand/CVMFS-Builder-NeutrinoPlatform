@@ -22,18 +22,18 @@ echo "Downloading it from source"
 
 XROOTD_VERSION="4.12.4-rc2"
 wget -O "xrootd-$XROOTD_VERSION.tar.gz" "https://github.com/xrootd/xrootd/archive/v$XROOTD_VERSION.tar.gz"
-tar xzvf "xrootd-${XROOTD_VERSION}.tar.gz"
+tar xzvf "xrootd-${XROOTD_VERSION}.tar.gz" > /dev/null 2>&1
 cd "xrootd-${XROOTD_VERSION}"
 mkdir build
 cd build
-cmake  -DCMAKE_INSTALL_PREFIX="${CVMFS_INSTALL_PATH}" ..
+cmake -DCMAKE_INSTALL_PREFIX=$CVMFS_INSTALL_PATH -DPYTHON_EXECUTABLE=$CVMFS_INSTALL_PATH/bin/python3  -DBUILD_PYTHON=ON ..
 cmake --build . -- -j$(nproc)
-cmake --install .
+cmake --install . > /dev/null 2>&1
 
 cd ../..
 rm -rf "xrootd-${XROOTD_VERSION}" "xrootd-${XROOTD_VERSION}.tar.gz"""
 
-echo "Installing Python bindings to xrootd"
-python3 -m pip install xrootd
+# echo "Installing Python bindings to xrootd"
+# python3 -m pip install xrootd
 
 exit 0

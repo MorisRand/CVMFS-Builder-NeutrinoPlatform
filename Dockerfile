@@ -6,7 +6,7 @@ ENV CVMFS_PATH=/cvmfs/dayabay.jinr.ru/centos7
 ENV CVMFS_INSTALL_PATH=/cvmfs/dayabay.jinr.ru/centos7/deps
 ENV GCC_VERSION=10.2.0
 ENV PYTHON_VERSION=3.8.6
-COPY gcc_install.sh python_install.sh xrootd_install.sh cmake_install.sh root_install.sh /tmp/
+COPY gcc_install.sh  /tmp/
 COPY cvmfs_rsync /bin
 
 RUN mkdir -p $CVMFS_INSTALL_PATH/pylib && cd $CVMFS_PATH \
@@ -24,10 +24,11 @@ ENV PATH="${CVMFS_INSTALL_PATH}/bin:${PATH}" \
     F77="${CVMFS_INSTALL_PATH}/bin/gfortran" \
     CMAKE_MODULE_PATH="${CVMFS_INSTALL_PATH}/cmake" \
     PYTHONPATH="${CVMFS_INSTALL_PATH}/lib:${CVMFS_INSTALL_PATH}/pylib"
+COPY  python_install.sh xrootd_install.sh cmake_install.sh root_install.sh /tmp/
 
-RUN  /tmp/python_install.sh \
-&& /tmp/cmake_install.sh \
-&& /tmp/xrootd_install.sh \
-&& /tmp/root_install.sh 
+RUN /tmp/python_install.sh
+RUN /tmp/cmake_install.sh
+RUN /tmp/xrootd_install.sh
+RUN /tmp/root_install.sh 
 
 WORKDIR "${CVMFS_PATH}"
