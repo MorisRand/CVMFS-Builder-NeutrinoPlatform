@@ -31,6 +31,6 @@ make install > /dev/null 2>&1
 cd ..
 rm -rf Python-${PYTHON_VERSION} Python-${PYTHON_VERSION}.tgz
 
-python3 -m pip install --no-cache-dir uproot scipy numpy dataset
+python3 -m pip install --no-cache-dir wheel setuptools uproot scipy numpy dataset
 
 exit 0
