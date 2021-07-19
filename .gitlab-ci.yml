@@ -17,4 +17,5 @@ build-master:
     - docker push "$CI_REGISTRY_IMAGE"
   only:
     - master
-
+  tags:
+    - heavy
