@@ -20,7 +20,7 @@ cd ${CVMFS_PATH}
 echo "Installing xrootd"
 echo "Downloading it from source"
 
-XROOTD_VERSION="4.12.4-rc2"
+XROOTD_VERSION="5.2.0"
 wget -O "xrootd-$XROOTD_VERSION.tar.gz" "https://github.com/xrootd/xrootd/archive/v$XROOTD_VERSION.tar.gz"
 tar xzvf "xrootd-${XROOTD_VERSION}.tar.gz" > /dev/null 2>&1
 cd "xrootd-${XROOTD_VERSION}"

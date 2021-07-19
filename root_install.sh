@@ -17,7 +17,7 @@ fi
 
 cd ${CVMFS_PATH}
 
-ROOT_VERSION="6.22.02"
+ROOT_VERSION="6.24.02"
 echo "Installing C-libraries neccessary for building ROOT"
 yum install -y libX11-devel git libXpm-devel libXft-devel libXext-devel
 

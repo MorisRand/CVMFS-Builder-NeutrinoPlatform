@@ -17,7 +17,7 @@ fi
 
 cd ${CVMFS_PATH}
 
-CMAKE_VERSION="3.18.4"
+CMAKE_VERSION="3.21.0"
 echo "Installing CMake ${CMAKE_VERSION}"
 echo "Downloading it from source"
 wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}.tar.gz
